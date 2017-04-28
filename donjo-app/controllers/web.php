@@ -173,6 +173,12 @@ class web extends CI_Controller{
 		else redirect("web/index/$p/$o");
 	}
 
+	function ubah_kategori($id=0){
+		$data['nik']          = $this->penduduk_model->get_penduduk($id);
+		$data['form_action'] = site_url("web/update_kategori/$id");
+		$this->load->view('web/artikel/ajax_edit_kategori',$data);
+	}
+
 	function widget_urut($id=0, $arah=0){
 		$this->web_artikel_model->widget_urut($id,$arah);
 		redirect("web/widget/1");
